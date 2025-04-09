@@ -30,12 +30,12 @@ export default function Page() {
 
     recognition.onstart = () => setListening(true);
 
-    recognition.onresult = (event: any) => {
+    recognition.onresult = (event: SpeechRecognitionEvent) => {
       const transcript = event.results[0][0].transcript;
       handleAsk(transcript);
     };
 
-    recognition.onerror = (event: any) => {
+    recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
       console.error('Speech recognition error:', event.error);
       setListening(false);
       if (event.error === 'no-speech') startListening();

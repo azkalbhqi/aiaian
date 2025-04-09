@@ -11,7 +11,7 @@ export async function askGemini(persona: string, prompt: string): Promise<string
 
     const text = result.response.text();
     return text ?? 'No response from Gemini';
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Gemini error:', error);
     return 'Failed to get response from Gemini';
   }
