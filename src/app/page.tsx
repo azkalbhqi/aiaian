@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from 'react';
 import { askGemini } from './chat';
+//tes
 
 export default function Page() {
   const [input, setInput] = useState('');
