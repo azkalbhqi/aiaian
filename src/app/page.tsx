@@ -1,6 +1,6 @@
 "use client"
-import { useEffect, useRef, useState } from 'react';
-import { askGemini } from './chat';
+import { useRef, useState } from 'react';
+import { askGemini } from '@/app/chat';
 //tes
 
 export default function Page() {
