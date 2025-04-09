@@ -6,7 +6,6 @@ import { askGemini } from '@/app/chat';
 export default function Page() {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<{ role: 'user' | 'bot'; content: string }[]>([]);
-  const [loading, setLoading] = useState(false);
   const [listening, setListening] = useState(false);
   const [persona, setPersona] = useState('You are a helpful assistant.');
   const recognitionRef = useRef<SpeechRecognition | null>(null);
@@ -57,7 +56,7 @@ export default function Page() {
   const handleAsk = async (prompt?: string) => {
     const text = prompt ?? input;
     if (!text.trim()) return;
-    setLoading(true);
+    
     const newMessages: { role: 'user' | 'bot'; content: string }[] = [...messages, { role: 'user', content: text }];
     setMessages(newMessages);
     setInput('');
@@ -65,7 +64,7 @@ export default function Page() {
     const botReply: { role: 'user' | 'bot'; content: string } = { role: 'bot', content: res };
     setMessages([...newMessages, botReply]);
     speak(res);
-    setLoading(false);
+    
   };
 
   return (
